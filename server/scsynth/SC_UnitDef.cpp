@@ -31,6 +31,7 @@
 #include "SC_UnitDef.h"
 #include "SC_World.h"
 #include "sc_msg_iter.h"
+#include "SC_WorldOptions.h"
 
 extern int gMissingNodeID;
 
@@ -38,6 +39,7 @@ SCBool UnitDef_Create(const char* inName, size_t inAllocSize, UnitCtorFunc inCto
                       uint32 inFlags) {
     if (strlen(inName) >= kSCNameByteLen)
         return false;
+    scprintf("UnitDef_Create %s\n", inName);
 
     UnitDef* unitDef = (UnitDef*)malloc(sizeof(UnitDef));
     if (!unitDef)
